@@ -1,12 +1,9 @@
 import React from "react";
-import Header from "../components/header";
-import Navigation from "../components/navigation";
+import Button from "../components/Button";
 
 const Home = () => {
     return (
         <div>
-            <Header />
-            <Navigation />
             <p>This is the home page</p>
         </div>
     )
