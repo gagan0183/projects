@@ -1,6 +1,7 @@
 import React from "react";
 import {gql, useQuery} from "@apollo/client";
 import ReactMarkdown from "react-markdown";
+import NoteFeed from "../components/NoteFeed";
 
 const GET_NOTES = gql`
     query noteFeed($cursor: String!) {
@@ -35,14 +36,7 @@ const Home = () => {
 
     return (
         <div>
-            {data.noteFeed.notes.map(note => (
-                <article key={note.id}>
-                    <img src={note.author.avatar} alt={`${note.author.username} avatar`} height="50px" />{' '}
-                    {note.author.username} {note.createdAt} {note.favoriteCount}{' '}
-                    <ReactMarkdown source={note.content}/>
-                </article>
-            ))}
-            <p>This is the home page</p>
+            <NoteFeed notes={data.noteFeed.notes} />
         </div>
     )
 };
