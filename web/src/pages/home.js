@@ -59,7 +59,7 @@ const Home = () => {
         <div>
             <NoteFeed notes={data.noteFeed.notes} />
             {data.noteFeed.hasNextPage && (
-                <Button>Load more</Button>
+                <Button onClick={fetchRecords}>Load more</Button>
             )}
         </div>
     )
