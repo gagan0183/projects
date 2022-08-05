@@ -33,10 +33,34 @@ const Home = () => {
     if (error) {
         return <p>Error!</p>;
     }
+    
+    const fetchRecords = () => {
+        fetchMore({
+            variables: {
+                cursor: data.noteFeed.cursor
+            },
+            updateQuery: (previousResult, { fetchMoreResult }) => {
+                return {
+                    noteFeed: {
+                        cursor: fetchMoreResult.noteFeed.cursor,
+                        hasNextPage: fetchMoreResult.noteFeed.hasNextPage,
+                        notes: [
+                            ...previousResult.noteFeed.notes,
+                            ...fetchMoreResult.noteFeed.notes
+                        ],
+                        _typename: "noteFeed"
+                    }
+                };
+            }
+        })
+    }
 
     return (
         <div>
             <NoteFeed notes={data.noteFeed.notes} />
+            {data.noteFeed.hasNextPage && (
+                <Button>Load more</Button>
+            )}
         </div>
     )
 };
