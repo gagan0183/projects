@@ -31,7 +31,7 @@ const getUser = token => {
         } catch (error) {
             throw new Error("Session invalid");
         }
-    } d
+    }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers, validationRules: [depthLimit(5), createComplexityLimitRule(1000)], context: ({ req }) => {

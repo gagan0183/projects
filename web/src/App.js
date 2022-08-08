@@ -1,18 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Pages from "./pages";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {ApolloClient, ApolloProvider, createHttpLink, InMemoryCache} from "@apollo/client";
 import GlobalStyle from "./components/GlobalStyle";
+import {setContext} from "apollo-link-context";
 
 const uri = process.env.API_URI;
+const httpLink = createHttpLink({ uri });
 const cache = new InMemoryCache();
 
+const authLink = setContext((_, { headers }) => {
+   return {
+       headers: {
+           ...headers,
+           authorization: localStorage.getItem("token") || ""
+       }
+   }
+});
+
 const client = new ApolloClient({
-    uri,
+    link: authLink.concat(httpLink),
     cache,
-    headers: {
-        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGZmZjA5ZTI3NmQxOGQ0NWY3YTEzZiIsImlhdCI6MTY1ODg0Njk4NX0.pADUE_8LcdlCxb5awBTYS4BZV3wcby0n1y5zBb5jSbA"
-    },
+    resolvers: {},
     connectToDevTools: true
 });
 
