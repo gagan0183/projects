@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Button from "../components/Button";
 import styled from "styled-components";
-import {gql, useMutation} from "@apollo/client";
+import {gql, useApolloClient, useMutation} from "@apollo/client";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -30,10 +30,16 @@ const SIGNUP_USER = gql`
 
 const SignUp = props => {
     const [values, setValues] = useState();
+    const client = useApolloClient();
 
     const [signUp, { loading, error }] = useMutation(SIGNUP_USER, {
         onCompleted: data => {
             localStorage.setItem("token", data.signUp);
+            client.writeData({
+                data: {
+                    isLoggedIn: true
+                }
+            });
             props.history.push("/");
         }
     })
