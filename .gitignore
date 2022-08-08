@@ -70,3 +70,27 @@ dist
 # cypress videos & screenshots
 cypress/videos
 cypress/screenshots
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+react-animation-portfolio/node_modules
+react-animation-portfolio/.pnp
+react-animation-portfolio/.pnp.js
+
+# testing
+react-animation-portfolio/coverage
+
+# production
+react-animation-portfolio/build
+
+# misc
+react-animation-portfolio/.DS_Store
+react-animation-portfolio/.env.local
+react-animation-portfolio/.env.development.local
+react-animation-portfolio/.env.test.local
+react-animation-portfolio/.env.production.local
+
+react-animation-portfolio/npm-debug.log*
+react-animation-portfolio/yarn-debug.log*
+react-animation-portfolio/yarn-error.log*
