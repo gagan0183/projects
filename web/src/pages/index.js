@@ -5,15 +5,17 @@ import MyNotes from "./mynotes";
 import Favorites from "./favorites";
 import Layout from "../components/layout";
 import NotePage from "./note";
+import Signup from "./signup";
 
 const Pages = () => {
   return (
       <Router>
           <Layout>
               <Route exact path="/" component={Home}></Route>
-              <Route exact path="/mynotes" component={MyNotes}></Route>
-              <Route exact path="/favorites" component={Favorites}></Route>
-              <Route exact path="/note/:id" component={NotePage}></Route>
+              <Route path="/signup" component={Signup}></Route>
+              <Route path="/mynotes" component={MyNotes}></Route>
+              <Route path="/favorites" component={Favorites}></Route>
+              <Route path="/note/:id" component={NotePage}></Route>
           </Layout>
       </Router>
   )  
