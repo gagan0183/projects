@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Nav = styled.nav`
   padding: 1em;
   background: #f5f4f0;
+  width: 190px;
   
   @media(max-width: 700px) {
     padding-top: 64px;

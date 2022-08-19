@@ -11,7 +11,7 @@ const Wrapper = styled.div`
       height: calc(100% - 64px);
       width: 100%;
       flex: auto;
-      flex-direction: column;
+      flex-direction: row;
     }
 `;
 

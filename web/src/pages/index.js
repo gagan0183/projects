@@ -8,6 +8,7 @@ import NotePage from "./note";
 import Signup from "./signup";
 import Signin from "./signin";
 import {gql, useQuery} from "@apollo/client";
+import NewNote from "./new";
 
 const IS_LOGGED_IN = gql`
     {
@@ -24,6 +25,7 @@ const Pages = () => {
               <Route path="/sigin" component={Signin}></Route>
               <PrivateRoute path="/mynotes" component={MyNotes}></PrivateRoute>
               <PrivateRoute path="/favorites" component={Favorites}></PrivateRoute>
+              <PrivateRoute path="/new" component={NewNote}></PrivateRoute>
               <Route path="/note/:id" component={NotePage}></Route>
           </Layout>
       </Router>
