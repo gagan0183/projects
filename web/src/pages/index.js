@@ -7,14 +7,9 @@ import Layout from "../components/layout";
 import NotePage from "./note";
 import Signup from "./signup";
 import Signin from "./signin";
-import {gql, useQuery} from "@apollo/client";
+import {useQuery} from "@apollo/client";
 import NewNote from "./new";
-
-const IS_LOGGED_IN = gql`
-    {
-        isLoggedIn @client
-    }
-`;
+import {IS_LOGGED_IN} from "../gql/query";
 
 const Pages = () => {
   return (
