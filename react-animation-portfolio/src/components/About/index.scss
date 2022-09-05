@@ -17,6 +17,13 @@
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0;
   margin-left: calc(50% - 100px);
+
+  div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+  }
 }
 
 @keyframes spincube {
