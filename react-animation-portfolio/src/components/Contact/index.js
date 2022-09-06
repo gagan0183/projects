@@ -69,7 +69,7 @@ const Contact = () => {
           <MapContainer center={[53.456584, -113.404595]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></TileLayer>
             <Marker position={[53.456584, -113.404595]}>
-              <Popup>Gagan lives here</Popup>
+              <Popup>Gagan lives here. Please come for a cup</Popup>
             </Marker>
           </MapContainer>
         </div>
