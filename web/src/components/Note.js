@@ -32,7 +32,6 @@ const Note = ({ note }) => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
-
   return (
     <StyledNote>
       <MetaData>
