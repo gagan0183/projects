@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const { is } = require('electron-util');
+const config = require('./config');
 
 let window;
 
@@ -12,7 +13,11 @@ function createWindow() {
     }
   });
 
-  window.loadURL('http://localhost:1234');
+  if (is.development) {
+    window.loadURL(config.LOCAL_WEB_URL);
+  } else {
+    window.loadURL(config.PRODUCTION_WEB_URL);
+  }
 
   if (is.development) {
     window.webContents.openDevTools();
